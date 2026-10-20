@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bh5u11y6q7e35"]
+
+[ext_resource type="Script" uid="uid://gfgns7o12r6q" path="res://scripts/mine.gd" id="1_5dgg3"]
+[ext_resource type="Texture2D" uid="uid://7kbkvx0kixi" path="res://assets/sprites/enemies/mine.png" id="2_awt7w"]
+[ext_resource type="AudioStream" uid="uid://dpw1llgjmei8w" path="res://assets/audio/explosion.wav" id="3_awt7w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0dl3"]
+atlas = ExtResource("2_awt7w")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tqyb"]
+atlas = ExtResource("2_awt7w")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77haa"]
+atlas = ExtResource("2_awt7w")
+region = Rect2(0, 30, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4nxj"]
+atlas = ExtResource("2_awt7w")
+region = Rect2(30, 30, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8uawh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0dl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tqyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77haa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4nxj")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nhvg7"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vf0o"]
+size = Vector2(16, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stpwx"]
+size = Vector2(16, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35kik"]
+size = Vector2(16, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uyd2"]
+size = Vector2(16, 17)
+
+[sub_resource type="Curve" id="Curve_5dgg3"]
+_data = [Vector2(0.0755814, 1), 0.0, -1.0065545, 0, 0, Vector2(0.89534897, 0.52808994), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Mine" type="StaticBody2D" unique_id=191756018]
+script = ExtResource("1_5dgg3")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1657789742]
+sprite_frames = SubResource("SpriteFrames_8uawh")
+animation = &"explode"
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1638150059]
+shape = SubResource("CircleShape2D_nhvg7")
+
+[node name="Detector" type="Area2D" parent="." unique_id=743334723]
+
+[node name="Left" type="CollisionShape2D" parent="Detector" unique_id=1479305328]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_0vf0o")
+
+[node name="Right" type="CollisionShape2D" parent="Detector" unique_id=425697709]
+position = Vector2(16, 0)
+shape = SubResource("RectangleShape2D_stpwx")
+
+[node name="Bottom" type="CollisionShape2D" parent="Detector" unique_id=1617508135]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_35kik")
+
+[node name="Top" type="CollisionShape2D" parent="Detector" unique_id=851766320]
+position = Vector2(0, -16.5)
+shape = SubResource("RectangleShape2D_8uyd2")
+
+[node name="Timer" type="Timer" parent="." unique_id=2105978548]
+
+[node name="Exploder" type="CPUParticles2D" parent="." unique_id=1917321483]
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 100.0
+angle_max = 360.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_5dgg3")
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="." unique_id=786221625]
+stream = ExtResource("3_awt7w")
+
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://v633rcfr44mn"]
+
+[ext_resource type="Script" uid="uid://cemp3arswbni4" path="res://scripts/upgrade_menu.gd" id="1_ksfom"]
+[ext_resource type="AudioStream" uid="uid://bfkjf0goiwq50" path="res://assets/audio/buyUpgrade.wav" id="2_0e30j"]
+
+[node name="UpgradeMenu" type="CanvasLayer" unique_id=903955048]
+script = ExtResource("1_ksfom")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=977386689]
+stream = ExtResource("2_0e30j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=463285648]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1198183549]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=694284065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -123.5
+offset_right = 185.0
+offset_bottom = 123.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=487335565]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Upgrade Menu"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/VBoxContainer" unique_id=965335368]
+layout_mode = 2
+color = Color(0.2784314, 0.2784314, 0.2784314, 0.5882353)
+
+[node name="upgradeHealth" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1005908975]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Health - 20 Credits"
+
+[node name="upgradeShield" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=69552622]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Shield - 10 Credits"
+
+[node name="upgradeDamage" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1078546543]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Damage - 5 Credits"
+
+[node name="NextWave" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=234097192]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Next Wave"
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/upgradeHealth" to="." method="_upgrade_health_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/upgradeShield" to="." method="_upgrade_shield_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/upgradeDamage" to="." method="_upgrade_damage_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/NextWave" to="." method="_next_wave_button_pressed"]

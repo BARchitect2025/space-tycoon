@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://eewpb6v5vtkh"]
+
+[ext_resource type="Script" uid="uid://d00co7m30k272" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bjpvci5ybuhhu" path="res://assets/sprites/player/ships.png" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://c02sj3cvbbh04" path="res://assets/audio/laserShoot.wav" id="3_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(0, 0, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": false,
+"name": &"hawk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(2, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(2.0000005, 8.785322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(2.0000005, 8.785322)
+
+[sub_resource type="Curve" id="Curve_dqkch"]
+_data = [Vector2(0.08139536, 0.97752815), 0.0, 0.0, 0, 0, Vector2(0.31976748, 0.9101124), 0.0, 0.0, 0, 0, Vector2(0.6220931, 0.8089888), 0.0, 0.0, 0, 0, Vector2(0.9011629, 0.46067423), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Player" type="CharacterBody2D" unique_id=364989219]
+script = ExtResource("1_g2els")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=881321987]
+z_index = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"hawk"
+autoplay = "hawk"
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1521017415]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Collider2" type="CollisionShape2D" parent="." unique_id=1245119880]
+position = Vector2(-3, -1.1920929e-07)
+rotation = 0.62831855
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="Collider3" type="CollisionShape2D" parent="." unique_id=1011724774]
+position = Vector2(3, 2.3841858e-07)
+rotation = -0.62831855
+shape = SubResource("RectangleShape2D_dqkch")
+
+[node name="BulletPos" type="Node2D" parent="." unique_id=989325683]
+position = Vector2(-4.7683716e-07, -14)
+rotation = -1.5707964
+
+[node name="ParticleEmitter" type="CPUParticles2D" parent="." unique_id=583071184]
+position = Vector2(-1, 6)
+emitting = false
+amount = 256
+lifetime = 0.6
+speed_scale = 2.5
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+angle_min = -10.0
+angle_max = 10.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_dqkch")
+
+[node name="ParticleEmitter2" type="CPUParticles2D" parent="." unique_id=514181052]
+position = Vector2(1, 6)
+emitting = false
+amount = 256
+lifetime = 0.6
+speed_scale = 2.5
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+angle_min = -10.0
+angle_max = 10.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_dqkch")
+
+[node name="ParticleEmitter3" type="CPUParticles2D" parent="." unique_id=1414071714]
+position = Vector2(0, -10)
+emitting = false
+amount = 256
+lifetime = 0.6
+speed_scale = 2.5
+direction = Vector2(0, -1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+angle_min = -10.0
+angle_max = 10.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_dqkch")
+
+[node name="Timer" type="Timer" parent="." unique_id=1014822363]
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=542859946]
+stream = ExtResource("3_qhqgy")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

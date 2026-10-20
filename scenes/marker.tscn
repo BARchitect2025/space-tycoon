@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2hbmawoqbjjr"]
+
+[ext_resource type="Texture2D" uid="uid://dr1nnu1bnw43r" path="res://assets/sprites/enemies/enemy_arrow.png" id="1_hy4mp"]
+
+[node name="Marker" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+rotation = 1.5707964
+texture = ExtResource("1_hy4mp")

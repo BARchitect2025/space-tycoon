@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://03fpsnccg1ou"]
+
+[ext_resource type="Script" uid="uid://bq7tnq6pe51l7" path="res://scripts/how_to_play_scene.gd" id="1_88ieg"]
+
+[node name="howToPlayScene" type="Node2D" unique_id=1082843733]
+script = ExtResource("1_88ieg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1272504310]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=222951986]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI" unique_id=1635006769]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.5
+offset_right = 117.5
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "How To Play"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/UI" unique_id=1407811127]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -568.5
+offset_top = -268.0
+offset_right = 568.5
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/ScrollContainer" unique_id=1549209336]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1511000804]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=354048804]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "To move, you use WASD like most games."
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1830346045]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "In this game, however, to turn, you use A and D, not the mouse."
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=904250871]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "W and S accelerate forward and backward, respectively."
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1676642837]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "To shoot, you press the spacebar, but holding it just shoots once."
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1923276058]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Shift toggles between fast and slow turning."
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1187008402]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Control toggles your speed mode."
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=185493061]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Gameplay"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=665298846]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Your goal is to survive as many waves as possible."
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1811178399]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "With each kill, your credits go up and you can buy ship upgrades."
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1695665644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "When you finish a wave, the shop will open for you to spend credits."
+horizontal_alignment = 1
+
+[node name="Label12" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=665552323]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "As the number of waves you have survived increases, so does the number of enemies."
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1971771347]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "There are mines, which do what any other mine would do (They explode)."
+horizontal_alignment = 1
+
+[node name="Label14" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=687483556]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "There are also ships that shoot at you when they get in range."
+horizontal_alignment = 1
+
+[node name="Label15" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=1720790896]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "The speed of your lasers scales with the speed that you are traveling."
+horizontal_alignment = 1
+
+[node name="Label16" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=557343132]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "What this means is that if you shoot while not moving and then accelerate, you will hit your laser."
+horizontal_alignment = 1
+
+[node name="Label17" type="Label" parent="CanvasLayer/UI/ScrollContainer/VBoxContainer" unique_id=2095927181]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "You have the option to turn slow or fast, as well as moving slow or fast."
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="CanvasLayer" unique_id=196060107]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[connection signal="pressed" from="CanvasLayer/Back" to="." method="_back_button_pressed"]

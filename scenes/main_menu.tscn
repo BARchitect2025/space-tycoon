@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://2clvcc35aj2g"]
+
+[ext_resource type="Script" uid="uid://baq5r5tcuju5i" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Node2D" unique_id=1296612961]
+script = ExtResource("1_l6cm7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=735961569]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1645817712]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI" unique_id=1037686287]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/VBoxContainer" unique_id=205811247]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Space Horde"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/UI/VBoxContainer" unique_id=773835957]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Charge Lasers?"
+
+[node name="Button" type="Button" parent="CanvasLayer/UI/VBoxContainer" unique_id=1426708809]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "How To Play"
+
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/Play" to="." method="_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/VBoxContainer/Button" to="." method="_how_to_play_button_pressed"]
